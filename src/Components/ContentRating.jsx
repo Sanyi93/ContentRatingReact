@@ -21,7 +21,7 @@ class ContentRating extends Component {
                 Like ({this.state.likes})
             </button>
             <button clasName='dislike-button'>
-                Dislike ({this.state.dislike})
+                Dislike ({this.state.dislikes})
             </button>
         </div>
      </div>
