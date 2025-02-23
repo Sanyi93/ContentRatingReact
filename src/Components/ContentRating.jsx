@@ -6,6 +6,7 @@ class ContentRating extends Component {
     this.state = {
         likes: 0,
         dislikes: 0,
+        totalRating: 0,
       handleLike:() => {
         this.setState((prevState) => ({
             likes: prevState.likes + 1
@@ -15,6 +16,11 @@ class ContentRating extends Component {
         this.setState((prevState) => ({
             dislikes: prevState.dislikes + 1
           }));
+      },
+      handleTotalRating:() => {
+        this.setState((prevState) => ({
+            totalRating: prevState.totalRating +1
+        }));
       }
       };
   }
@@ -26,12 +32,13 @@ class ContentRating extends Component {
         <p>If you like this random text, click the "like" button please. If not, leave this site please, and do not event try to click the "dislike" button.
         </p>
         <div className='rating-buttons'>
-        <button className="like-button" onClick={this.state.handleLike}>
+        <button className="like-button" onClick={[this.state.handleLike, this.state.handleTotalRating]}>
             Like ({this.state.likes})
           </button>
-          <button className="dislike-button" onClick={this.state.handleDislike}>
+          <button className="dislike-button" onClick={[this.state.handleDislike, this.state.handleTotalRating]}>
             Dislike ({this.state.dislikes})
           </button>
+          <p>Total Ratings: ({this.state.totalRating})</p>
         </div>
      </div>
      </>
